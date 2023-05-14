@@ -1,6 +1,6 @@
 nltk
 Keras-Preprocessing
-tensorflow
+tensorflow-cpu
 fastapi
 uvicorn
 gunicorn==19.9.0
