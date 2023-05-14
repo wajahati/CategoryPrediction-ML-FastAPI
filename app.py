@@ -25,10 +25,7 @@ import operator
 app = FastAPI()
 
 
-tokenizer = 0 
-with open('tokenizer.pickle', 'rb') as handle:
-    tokenizer = pickle.load(handle)
-model = load_model('model-LSTM.h5')
+
 
 # 3. Index route, opens automatically on http://127.0.0.1:8000
 def decontract(sentence):
@@ -385,15 +382,15 @@ def findCategory(name,description):
   information = name + description
 
   # loading
-#  tokenizer = 0 
-#  with open('tokenizer.pickle', 'rb') as handle:
-#    tokenizer = pickle.load(handle)
+  tokenizer = 0 
+  with open('tokenizer.pickle', 'rb') as handle:
+    tokenizer = pickle.load(handle)
 
   sequences = tokenizer.texts_to_sequences([information])
   # print(sequence)
   x = pad_sequences(sequences, maxlen=500)
 
-#  model = load_model('model-LSTM.h5')
+  model = load_model('model-LSTM.h5')
   prediction = model.predict(x)
   predScores = [score for pred in prediction for score in pred]
   predDict = {}
