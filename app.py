@@ -19,7 +19,11 @@ from nltk.stem.snowball import SnowballStemmer
 import re
 from keras.models import load_model
 import operator
+
 # 2. Create the app object
+# 2. Create the app object
+app = FastAPI()
+
 
 tokenizer = 0 
 with open('tokenizer.pickle', 'rb') as handle:
